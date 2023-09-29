@@ -35,6 +35,7 @@ data class ContactInfo(
     val imageResource: Int // Gunakan resource gambar lokal
 )
 
+// Main
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,6 +53,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+// Untuk edit tampilan
 @Composable
 fun ContactCard(contactInfo: ContactInfo) {
     Column(
@@ -77,7 +79,7 @@ fun ContactCard(contactInfo: ContactInfo) {
             )
         }
 
-        // Nama dan Jabatan
+        // Nama dan Jabatan untuk mengubah tampilan
         Column(
             modifier = Modifier
                 .padding(top = 8.dp)
@@ -107,31 +109,6 @@ fun ContactCard(contactInfo: ContactInfo) {
         )
 
         Spacer(modifier = Modifier.height(16.dp))
-    }
-}
-
-@Composable
-fun ContactInfoSection(email: String) {
-    Spacer(modifier = Modifier.height(16.dp))
-
-    Column {
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Icon(
-                imageVector = Icons.Default.Email,
-                contentDescription = null,
-                tint = Color.Gray,
-                modifier = Modifier.size(24.dp)
-            )
-            Spacer(modifier = Modifier.width(8.dp))
-            Text(
-                text = email,
-                fontSize = 16.sp,
-                color = Color.Black
-            )
-        }
     }
 }
 
